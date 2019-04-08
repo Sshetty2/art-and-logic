@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import TextField from '@material-ui/core/TextField'
 import { withStyles } from '@material-ui/core/styles';
-import classes from 'classes'
+import './App.css';
 
 
 const styles = theme => ({
@@ -33,8 +33,18 @@ const styles = theme => ({
   }
 });
 
-export default class withStyles(styles)(InternalTextfield) extends PureComponent {
+
+class InternalTextField extends PureComponent {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       
+    }
+  }
+  
   render() {
+    const { classes } = this.props;
     return (
         <TextField
         className={classes.margin}
@@ -59,3 +69,5 @@ export default class withStyles(styles)(InternalTextfield) extends PureComponent
     )
   }
 }
+
+export default withStyles(styles)(InternalTextField);
