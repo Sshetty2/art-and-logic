@@ -43,7 +43,7 @@ class InternalTextField extends PureComponent {
     super(props)
   
     this.state = {
-       
+      
     }
   }
 
