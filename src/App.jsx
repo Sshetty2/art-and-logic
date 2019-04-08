@@ -23,13 +23,12 @@ function toFahrenheit(celsius) {
   return (celsius * 9 / 5) + 32;
 }
 
-function tryConvert(temperature, convert) {
+function tryConvert(temperature) {
   const input = parseFloat(temperature);
   if (Number.isNaN(input)) {
     return '';
   }
-  const output = convert(input);
-  const rounded = Math.round(output * 1000) / 1000;
+  const rounded = Math.round(input * 1000) / 1000;
   return rounded.toString();
 }
 
@@ -44,10 +43,11 @@ function BoilingVerdict(props) {
 class App extends Component {
   constructor(props) {
     super(props);
+    this.handleEncodedChange = this.handleEncodedChange.bind(this);
     this.state = {temperature: '', scale: 'c'};
   }
 
-  handleEncodedChange = (_value) => {
+  handleEncodedChange(_value){
     this.setState({varType: 'e', _value});
   }
 
@@ -63,8 +63,8 @@ class App extends Component {
 
     const varType = this.state.varType;
     const _value = this.state._value;
-    const encoded = varType === 'e' ? tryConvert(_value, toCelsius) : _value;
-    const decoded = varType === 'd' ? tryConvert(_value, toFahrenheit) : _value;
+    const encoded = varType === 'd' ? tryConvert(_value) : _value;
+    const decoded = varType === 'e' ? tryConvert(_value) : _value;
 
     return (
       <div className="App">
