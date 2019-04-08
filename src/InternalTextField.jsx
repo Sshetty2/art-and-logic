@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField'
 import { withStyles } from '@material-ui/core/styles';
 import './App.css';
 
-
 const styles = theme => ({
   margin: {
     marginTop: 16,
@@ -35,22 +34,11 @@ const styles = theme => ({
 });
 
 
-
-
-
 class InternalTextField extends PureComponent {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-      
-    }
-  }
 
   handleChange = (e) => {
     this.props.onInputChange(e.target.value);
   }
-
   
   render() {
     const { classes } = this.props;
