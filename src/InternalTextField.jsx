@@ -7,6 +7,7 @@ import './App.css';
 const styles = theme => ({
   margin: {
     marginTop: 16,
+    margin: 10
   },
   input: {
     color: 'white',
@@ -34,6 +35,9 @@ const styles = theme => ({
 });
 
 
+
+
+
 class InternalTextField extends PureComponent {
   constructor(props) {
     super(props)
@@ -42,12 +46,18 @@ class InternalTextField extends PureComponent {
        
     }
   }
+
+  handleChange = (e) => {
+    this.props.onInputChange(e.target.value);
+  }
+
   
   render() {
     const { classes } = this.props;
     return (
         <TextField
         className={classes.margin}
+        margin="normal"
         InputLabelProps={{
           classes: {
             root: classes.cssLabel,
@@ -62,9 +72,11 @@ class InternalTextField extends PureComponent {
             notchedOutline: classes.notchedOutline,
           },
         }}
-        label={this.props.label}
+        label={this.props.var}
         variant="outlined"
         id={this.props.id}
+        onChange={this.handleChange}
+        value={this.props._value}
       />
     )
   }
