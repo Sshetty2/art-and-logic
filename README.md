@@ -6,3 +6,5 @@ The project is live at
 
 https://artlogic-programming-challenge.sshetty2.now.sh
 
+### `yarn install`
+### `yarn start`
